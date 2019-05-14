@@ -1,3 +1,4 @@
+import inotify.adapters
 import os
 import telebot
 
@@ -7,6 +8,7 @@ EXTENSION = os.getenv('EXTENSION', '')
 DESTINATION = os.getenv('DESTINATION')
 
 bot = telegram.Bot(TOKEN)
+notifier = inotify.adapters.InotifyTree(FOLDER)
 
 for event in notifier.event_gen():
     if event is not None:
