@@ -6,7 +6,7 @@ FOLDER = os.getenv('FOLDER', '/tmp/')
 EXTENSION = os.getenv('EXTENSION', '')
 DESTINATION = os.getenv('DESTINATION')
 
-bot = telegram.Bot(TOKEN)
+bot = telebot.TeleBot(TOKEN)
 
 for event in notifier.event_gen():
     if event is not None:
