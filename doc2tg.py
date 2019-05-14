@@ -1,5 +1,5 @@
 import os
-import telegram
+import telebot
 
 TOKEN = os.getenv('BOT_TOKEN')
 FOLDER = os.getenv('FOLDER', '/tmp/')
@@ -14,5 +14,5 @@ for event in notifier.event_gen():
             file_path = event[2] + '/' + event[3]
             file_open = open(file_path, 'rb')
             bot.send_chat_action(DESTINATION, 'upload_document')
-            bot.send_document(DESTINATION, file_open, timeout=1200)
+            bot.send_document(DESTINATION, file_open)
 
